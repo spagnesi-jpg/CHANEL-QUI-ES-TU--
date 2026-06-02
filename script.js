@@ -10,12 +10,12 @@
 const fragranceDatabase = {
     'pour-elle': {
         visionary: {
-            name: 'Chanel N°5 L\'Eau',
+            name: 'Chanel N°5 Eau de Parfum',
             profile: 'The Visionary',
             description: 'A timeless expression of feminine power. This luminous composition captures the essence of modernity while honoring iconic heritage. A fragrance for those who lead with vision and purpose.',
             notes: ['Neroli', 'Peony', 'Sandalwood', 'Vanilla'],
             image: './images/chanel-no5-leau.jpg',
-            url: 'https://www.chanel.com/en_US/fragrance/p/chanel-no-5-leau/'
+            url: 'https://www.chanel.com/en_US/fragrance/p/chanel-no-5-eau-de-parfum/'
         },
         emancipated: {
             name: 'Coco Mademoiselle',
