@@ -52,12 +52,12 @@ const fragranceDatabase = {
             url: 'https://www.chanel.com/en_US/fragrance/p/bleu-de-chanel-parfum/'
         },
         emancipated: {
-            name: 'Allure Homme Sport',
+            name: 'Allure',
             profile: 'The Emancipated',
             description: 'Dynamic and liberated, this fragrance celebrates the modern man who refuses limitations. Fresh and powerful, it embodies freedom of expression and fearless individuality.',
             notes: ['Mandarin', 'Vetiver', 'Cedarwood', 'Musk'],
             image: './images/allure-homme-sport.jpg',
-            url: 'https://www.chanel.com/en_US/fragrance/p/allure-homme-sport/'
+            url: 'https://www.chanel.com/en_US/fragrance/p/allure/'
         },
         creative: {
             name: 'Bleu de Chanel Eau de Parfum',
@@ -195,7 +195,7 @@ function handleOptionSelect(event) {
     // Auto-advance after brief delay for smooth transition
     setTimeout(() => {
         navigateToScreen(appState.currentScreen + 1);
-    }, 600);
+    }, 400);
 }
 
 /**
@@ -214,7 +214,7 @@ function updateSelectedState(selectedCard, question) {
 
 /**
  * Navigate to Screen
- * Transitions between consultation screens with smooth animation
+ * Transitions between consultation screens with dissolve effect
  */
 function navigateToScreen(screenNumber) {
     // Validate screen number
@@ -235,12 +235,12 @@ function navigateToScreen(screenNumber) {
         currentScreen.classList.remove('active');
     }
 
-    // Small delay for visual continuity
+    // Wait for fade-out to complete, then fade in new screen
     setTimeout(() => {
         // Update state
         appState.currentScreen = screenNumber;
 
-        // Show new screen with fade-in
+        // Show new screen with dissolve effect
         newScreen.classList.add('active');
 
         // Special handling for recommendation screen
@@ -253,7 +253,7 @@ function navigateToScreen(screenNumber) {
 
         // Scroll to top smoothly
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 300);
+    }, 400);
 }
 
 /**
