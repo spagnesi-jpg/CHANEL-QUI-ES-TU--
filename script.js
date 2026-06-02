@@ -14,7 +14,7 @@ const fragranceDatabase = {
             profile: 'The Visionary',
             description: 'A timeless expression of feminine power. This luminous composition captures the essence of modernity while honoring iconic heritage. A fragrance for those who lead with vision and purpose.',
             notes: ['Neroli', 'Peony', 'Sandalwood', 'Vanilla'],
-            image: '/images/chanel-no5-leau.jpg',
+            image: './images/chanel-no5-leau.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/chanel-no-5-leau/'
         },
         emancipated: {
@@ -22,7 +22,7 @@ const fragranceDatabase = {
             profile: 'The Emancipated',
             description: 'Elegant and confident, this fragrance celebrates independence and freedom. A sophisticated blend that refuses convention, embodying the spirit of the modern woman who writes her own rules.',
             notes: ['Orange', 'Jasmine', 'Patchouli', 'Amber'],
-            image: '/images/coco-mademoiselle.jpg',
+            image: './images/coco-mademoiselle.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/coco-mademoiselle-eau-de-parfum/'
         },
         creative: {
@@ -30,7 +30,7 @@ const fragranceDatabase = {
             profile: 'The Creative',
             description: 'An olfactory manifesto of creative expression. This vibrant composition celebrates originality and artistic spirit. For those whose imagination knows no limits, a fragrance that captures boundless energy.',
             notes: ['Aldehydes', 'Hyacinth', 'Gardenia', 'Sandalwood'],
-            image: '/images/gabrielle-essence.jpg',
+            image: './images/gabrielle-essence.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/gabrielle-chanel-essence/'
         },
         authentic: {
@@ -38,7 +38,7 @@ const fragranceDatabase = {
             profile: 'The Authentic',
             description: 'Effortless elegance in a bottle. This tender fragrance celebrates authenticity and natural grace. A gentle composition that reveals your true essence with quiet confidence and timeless appeal.',
             notes: ['Pink Pepper', 'Jasmine', 'Amber Patchouli'],
-            image: '/images/chance-eau-tendre.jpg',
+            image: './images/chance-eau-tendre.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/chance-eau-tendre/'
         }
     },
@@ -48,7 +48,7 @@ const fragranceDatabase = {
             profile: 'The Visionary',
             description: 'A bold declaration of masculine vision. This sophisticated composition merges tradition with innovation, capturing the essence of forward-thinking elegance. A fragrance for the modern man of vision.',
             notes: ['Citron', 'Ginger', 'Sandalwood', 'Amber'],
-            image: '/images/bleu-parfum.jpg',
+            image: './images/bleu-parfum.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/bleu-de-chanel-parfum/'
         },
         emancipated: {
@@ -56,7 +56,7 @@ const fragranceDatabase = {
             profile: 'The Emancipated',
             description: 'Dynamic and liberated, this fragrance celebrates the modern man who refuses limitations. Fresh and powerful, it embodies freedom of expression and fearless individuality.',
             notes: ['Mandarin', 'Vetiver', 'Cedarwood', 'Musk'],
-            image: '/images/allure-homme-sport.jpg',
+            image: './images/allure-homme-sport.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/allure-homme-sport/'
         },
         creative: {
@@ -64,7 +64,7 @@ const fragranceDatabase = {
             profile: 'The Creative',
             description: 'An artistic interpretation of masculine elegance. This creative composition blends classic sophistication with modern sensibility. For the man who expresses himself through originality and style.',
             notes: ['Lemon', 'Mint', 'Sandalwood', 'Ambroxan'],
-            image: '/images/bleu-edp.jpg',
+            image: './images/bleu-edp.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/bleu-de-chanel-eau-de-parfum/'
         },
         authentic: {
@@ -72,7 +72,7 @@ const fragranceDatabase = {
             profile: 'The Authentic',
             description: 'Pure and genuine, this fragrance captures true masculinity without pretense. A timeless composition of refined simplicity, reflecting the authentic man who remains true to himself.',
             notes: ['Bergamot', 'Lavender', 'Vanilla', 'Musk'],
-            image: '/images/platinum-egoiste.jpg',
+            image: './images/platinum-egoiste.jpg',
             url: 'https://www.chanel.com/en_US/fragrance/p/platinum-egoiste/'
         }
     }
@@ -157,7 +157,7 @@ function setupEventListeners() {
         card.addEventListener('click', handleOptionSelect);
         card.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
-                handleOptionSelect.call(card);
+                handleOptionSelect.call(card, e);
             }
         });
     });
@@ -192,10 +192,10 @@ function handleOptionSelect(event) {
     // Visual feedback
     updateSelectedState(card, question);
 
-    // Auto-advance after brief delay
+    // Auto-advance after brief delay for smooth transition
     setTimeout(() => {
         navigateToScreen(appState.currentScreen + 1);
-    }, 300);
+    }, 600);
 }
 
 /**
@@ -214,7 +214,7 @@ function updateSelectedState(selectedCard, question) {
 
 /**
  * Navigate to Screen
- * Transitions between consultation screens
+ * Transitions between consultation screens with smooth animation
  */
 function navigateToScreen(screenNumber) {
     // Validate screen number
@@ -222,30 +222,38 @@ function navigateToScreen(screenNumber) {
         return;
     }
 
-    // Hide current screen
-    document.querySelectorAll('.screen').forEach(screen => {
-        screen.classList.remove('active');
-    });
-
-    // Update state
-    appState.currentScreen = screenNumber;
-
-    // Show new screen
+    // Get current and new screens
+    const currentScreen = document.querySelector('.screen.active');
     const newScreen = document.querySelector(`.screen-${screenNumber}`);
-    if (newScreen) {
+
+    if (!newScreen) {
+        return;
+    }
+
+    // Fade out current screen
+    if (currentScreen) {
+        currentScreen.classList.remove('active');
+    }
+
+    // Small delay for visual continuity
+    setTimeout(() => {
+        // Update state
+        appState.currentScreen = screenNumber;
+
+        // Show new screen with fade-in
         newScreen.classList.add('active');
-    }
 
-    // Special handling for recommendation screen
-    if (screenNumber === 7) {
-        displayRecommendation();
-    }
+        // Special handling for recommendation screen
+        if (screenNumber === 7) {
+            displayRecommendation();
+        }
 
-    // Update progress bar
-    updateProgressBar();
+        // Update progress bar
+        updateProgressBar();
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 300);
 }
 
 /**
@@ -396,37 +404,11 @@ function enhanceAccessibility() {
 }
 
 /**
- * Performance Optimization
- * Lazy load images when screen becomes visible
- */
-function setupLazyLoading() {
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-}
-
-/**
  * Initialize on DOM Ready
  */
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
     enhanceAccessibility();
-    setupLazyLoading();
 
     // Log initialization
     console.log('Chanel Qui Es-Tu? Consultation Experience Initialized');
@@ -438,7 +420,6 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 window.addEventListener('error', (event) => {
     console.error('Application error:', event.error);
-    // Optionally send error to logging service
 });
 
 /**
@@ -446,20 +427,6 @@ window.addEventListener('error', (event) => {
  * Clean up when user leaves
  */
 window.addEventListener('beforeunload', () => {
-    // Optional: Save state to localStorage for persistence
+    // Save state to localStorage for persistence
     localStorage.setItem('chanelConsultationState', JSON.stringify(appState));
-});
-
-/**
- * Page Visibility Handler
- * Pause animations when tab is hidden
- */
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Pause animations
-        document.body.style.animationPlayState = 'paused';
-    } else {
-        // Resume animations
-        document.body.style.animationPlayState = 'running';
-    }
 });
