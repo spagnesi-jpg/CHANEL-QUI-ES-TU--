@@ -152,6 +152,10 @@ p {
     left: 0;
     right: 0;
     width: 100%;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .screen.active {
@@ -169,9 +173,9 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 60vh;
     justify-content: center;
     width: 100%;
+    min-height: 60vh;
 }
 
 /* ============================================
@@ -292,8 +296,9 @@ p {
    ============================================ */
 
 .recommendation-content {
-    justify-content: flex-start;
+    justify-content: center;
     padding: 2rem 0;
+    min-height: auto;
 }
 
 .fragrance-display {
@@ -404,6 +409,10 @@ p {
         padding: 1rem 1.5rem;
     }
 
+    .screen {
+        min-height: calc(100vh - 100px);
+    }
+
     .screen-content {
         min-height: auto;
     }
@@ -464,6 +473,10 @@ p {
 
     .logo {
         font-size: 0.75rem;
+    }
+
+    .screen {
+        min-height: calc(100vh - 90px);
     }
 
     .option-card {
