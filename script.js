@@ -52,12 +52,12 @@ const fragranceDatabase = {
             url: 'https://www.chanel.com/en_US/fragrance/p/bleu-de-chanel-parfum/'
         },
         emancipated: {
-            name: 'Allure',
+            name: 'Allure Homme',
             profile: 'The Emancipated',
             description: 'Dynamic and liberated, this fragrance celebrates the modern man who refuses limitations. Fresh and powerful, it embodies freedom of expression and fearless individuality.',
             notes: ['Mandarin', 'Vetiver', 'Cedarwood', 'Musk'],
             image: './images/allure-homme-sport.jpg',
-            url: 'https://www.chanel.com/en_US/fragrance/p/allure/'
+            url: 'https://www.chanel.com/en_US/fragrance/p/allure-homme/'
         },
         creative: {
             name: 'Bleu de Chanel Eau de Parfum',
