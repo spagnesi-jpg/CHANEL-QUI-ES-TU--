@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui Es-Tu? | Chanel Fragrance Consultation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">CHANEL</div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-bar"></div>
+        </div>
+
+        <!-- Screen 1: Welcome -->
+        <section class="screen screen-1 active">
+            <div class="screen-content">
+                <p class="label">DISCOVER YOUR IDENTITY</p>
+                <h1 class="title">QUI ES-TU ?</h1>
+                <p class="supporting-text">A fragrance. A signature.</p>
+                <button class="btn btn-primary" data-action="next-screen">BEGIN YOUR JOURNEY</button>
+            </div>
+        </section>
+
+        <!-- Screen 2: Pour Qui -->
+        <section class="screen screen-2">
+            <div class="screen-content">
+                <h2 class="title">POUR QUI ?</h2>
+                <p class="supporting-text">A creation designed for...</p>
+                <div class="options-grid">
+                    <button class="option-card" data-question="1" data-answer="elle">
+                        <span class="option-text">POUR ELLE</span>
+                    </button>
+                    <button class="option-card" data-question="1" data-answer="lui">
+                        <span class="option-text">POUR LUI</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 3: Your Essence -->
+        <section class="screen screen-3">
+            <div class="screen-content">
+                <h2 class="title">YOUR ESSENCE</h2>
+                <p class="supporting-text">Choose one</p>
+                <div class="options-grid options-grid-single">
+                    <button class="option-card essence-card" data-question="3" data-answer="1">
+                        <h3 class="option-title">THE VISIONARY</h3>
+                        <p class="option-description">Ahead of the moment.</p>
+                    </button>
+                    <button class="option-card essence-card" data-question="3" data-answer="2">
+                        <h3 class="option-title">THE EMANCIPATED</h3>
+                        <p class="option-description">Freedom as a signature.</p>
+                    </button>
+                    <button class="option-card essence-card" data-question="3" data-answer="3">
+                        <h3 class="option-title">THE CREATIVE</h3>
+                        <p class="option-description">Imagination without limits.</p>
+                    </button>
+                    <button class="option-card essence-card" data-question="3" data-answer="4">
+                        <h3 class="option-title">THE AUTHENTIC</h3>
+                        <p class="option-description">Effortless and true.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 4: Your Energy -->
+        <section class="screen screen-4">
+            <div class="screen-content">
+                <h2 class="title">YOUR ENERGY</h2>
+                <p class="supporting-text">What moves you</p>
+                <div class="options-grid options-grid-single">
+                    <button class="option-card essence-card" data-question="4" data-answer="1">
+                        <span class="option-text">ALWAYS ON THE MOVE</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="4" data-answer="2">
+                        <span class="option-text">SEEKING MEANINGFUL CONNECTIONS</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="4" data-answer="3">
+                        <span class="option-text">CREATING SOMETHING NEW</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="4" data-answer="4">
+                        <span class="option-text">FINDING BALANCE</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 5: Your Inspiration -->
+        <section class="screen screen-5">
+            <div class="screen-content">
+                <h2 class="title">YOUR INSPIRATION</h2>
+                <p class="supporting-text">Choose one</p>
+                <div class="options-grid options-grid-single">
+                    <button class="option-card essence-card" data-question="5" data-answer="1">
+                        <span class="option-text">ART & CULTURE</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="5" data-answer="2">
+                        <span class="option-text">ADVENTURE & DISCOVERY</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="5" data-answer="3">
+                        <span class="option-text">PEOPLE & EMOTIONS</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="5" data-answer="4">
+                        <span class="option-text">NATURE & WELL-BEING</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 6: Your Aesthetic -->
+        <section class="screen screen-6">
+            <div class="screen-content">
+                <h2 class="title">YOUR AESTHETIC</h2>
+                <p class="supporting-text">A world that reflects you</p>
+                <div class="options-grid options-grid-single">
+                    <button class="option-card essence-card" data-question="6" data-answer="1">
+                        <span class="option-text">MODERN LUXURY</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="6" data-answer="2">
+                        <span class="option-text">TIMELESS ELEGANCE</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="6" data-answer="3">
+                        <span class="option-text">SENSUAL WARMTH</span>
+                    </button>
+                    <button class="option-card essence-card" data-question="6" data-answer="4">
+                        <span class="option-text">BOLD INDIVIDUALITY</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 7: Recommendation -->
+        <section class="screen screen-7">
+            <div class="screen-content recommendation-content">
+                <p class="label">YOUR SIGNATURE FRAGRANCE</p>
+                <div class="fragrance-display">
+                    <img id="fragrance-image" class="fragrance-image" src="" alt="Fragrance">
+                    <h2 id="fragrance-name" class="fragrance-name"></h2>
+                    <p id="fragrance-profile" class="fragrance-profile"></p>
+                    <p id="fragrance-description" class="fragrance-description"></p>
+                    <div id="fragrance-notes" class="fragrance-notes"></div>
+                </div>
+                <a id="fragrance-link" class="btn btn-primary" href="#" target="_blank">DISCOVER</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
